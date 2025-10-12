@@ -1,0 +1,50 @@
+{
+    "output_images": [
+        "/Users/eriwang/Desktop/cv-project-2025/blender/img/render_cam_0deg.png",
+        "/Users/eriwang/Desktop/cv-project-2025/blender/img/render_cam_45deg.png"
+    ],
+    "cameras": [
+        {
+            "name": "Camera_0deg",
+            "image": "/Users/eriwang/Desktop/cv-project-2025/blender/img/render_cam_0deg.png",
+            "location": {
+                "x": 18.793851852416992,
+                "y": 0.0,
+                "z": 6.840403079986572
+            },
+            "rotation_euler_radians": {
+                "x": 1.2217304706573486,
+                "y": 1.1739823690959383e-07,
+                "z": 1.570796251296997
+            },
+            "rotation_euler_degrees": {
+                "x": 69.99999967119774,
+                "y": 6.726423497196692e-06,
+                "z": 89.999995674289
+            },
+            "lens_mm": 50.0,
+            "sensor_width_mm": 36.0
+        },
+        {
+            "name": "Camera_45deg",
+            "image": "/Users/eriwang/Desktop/cv-project-2025/blender/img/render_cam_45deg.png",
+            "location": {
+                "x": 13.289260864257812,
+                "y": 13.289260864257812,
+                "z": 6.840403079986572
+            },
+            "rotation_euler_radians": {
+                "x": 1.2217305898666382,
+                "y": -4.809091791457831e-08,
+                "z": 2.356194496154785
+            },
+            "rotation_euler_degrees": {
+                "x": 70.0000065013869,
+                "y": -2.75540662941542e-06,
+                "z": 135.00000034162267
+            },
+            "lens_mm": 50.0,
+            "sensor_width_mm": 36.0
+        }
+    ]
+}
