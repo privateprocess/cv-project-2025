@@ -424,6 +424,7 @@ def world_points_to_image_points(points_3d, camera_name):
     points_3d_homogeneous = np.insert(points_3d, 3, 1.0, axis=1)
     
     # Create the extrinsic matrix [R | T] (3x4)
+    tvec = tvec.reshape(-1,1)
     RT = np.hstack([R, tvec])
     
     # Project: p = K * [R | T] * P
