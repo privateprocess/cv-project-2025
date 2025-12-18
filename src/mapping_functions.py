@@ -438,48 +438,6 @@ def world_points_to_image_points(points_3d, camera_name):
     
     return points_2d
 
-def world_points_to_image_points(points_3d, camera_name):
-    """
-    Project multiple 3D world points to 2D image coordinates.
-    
-    Args:
-        points_3d: Nx3 array of 3D points in world coordinates
-        camera_name: Name of the camera to project to
-        
-    Returns:
-        points_2d: Nx2 array of 2D image coordinates
-    """
-    # Load intrinsics and extrinsics
-    filename = convert_camera_name_to_filename(camera_name)
-    K = intrinsics[filename]['camera_matrix']
-    rvec = extrinsics[filename]['rvec']
-    tvec = extrinsics[filename]['tvec']
-    
-    # Convert rotation vector to matrix
-    R, _ = cv.Rodrigues(rvec)
-    
-    # Ensure points_3d is a numpy array
-    points_3d = np.array(points_3d)
-    
-    # Convert 3D points to homogeneous coordinates (Nx4)
-    points_3d_homogeneous = np.insert(points_3d, 3, 1.0, axis=1)
-    
-    # Create the extrinsic matrix [R | T] (3x4)
-    tvec = tvec.reshape(-1,1)
-    RT = np.hstack([R, tvec])
-    
-    # Project: p = K * [R | T] * P
-    # This gives us homogeneous 2D coordinates (3xN)
-    points_2d_homogeneous = K @ RT @ points_3d_homogeneous.T
-    
-    # Convert from homogeneous to cartesian coordinates by dividing by the third coordinate (s)
-    points_2d = points_2d_homogeneous[:2, :] / points_2d_homogeneous[2, :]
-    
-    # Transpose to get Nx2 array
-    points_2d = points_2d.T
-    
-    return points_2d
-
 def quad_area(rays):
     """Fast area calculation for planar 3D quadrilateral using diagonals."""
     d1 = rays[2] - rays[0]
